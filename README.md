@@ -127,6 +127,6 @@ O repositório do frontend que consome esta API está disponível no seguinte li
 pip install -r requirements.txt
 
 # Rodar servidor (exemplo com FastAPI + Uvicorn)
-uvicorn main:app --reload
+uvicorn app:app --reload
 ```
 ---
