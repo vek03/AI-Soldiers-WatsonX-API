@@ -1,4 +1,6 @@
-# 📌 API - Python 3.11.9
+# 📌 AI-Soldiers-WatsonX-API - Python 3.11.9
+
+API Responsável por se comunicar com o modelo de análise de malware do WatsonX.
 
 Esta API foi desenvolvida em **Python 3.11.9** e possui um único endpoint que atende às necessidades do sistema.
 
