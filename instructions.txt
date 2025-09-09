@@ -1,0 +1,68 @@
+
+## 1) Testando com GPT (default)
+- URL:
+  http://127.0.0.1:8000/api/model-risk
+- Método:
+  POST
+- Headers:
+  Content-Type: application/json
+- Body (raw, JSON):
+{
+  "input_data": [
+    {
+      "fields": [
+        "CustomerID","CheckingStatus","LoanDuration","CreditHistory","LoanPurpose",
+        "LoanAmount","ExistingSavings","EmploymentDuration","InstallmentPercent",
+        "Sex","OthersOnLoan","CurrentResidenceDuration","OwnsProperty","Age",
+        "InstallmentPlans","Housing","ExistingCreditsCount","Job","Dependents",
+        "Telephone","ForeignWorker"
+      ],
+      "values": [[
+        "CUST-001","A12",24,"A34","car",12000,"A61","A75",3,"male","none",4,
+        "A121",35,"none","rent",1,"skilled",1,"yes","yes"
+      ]]
+    }
+  ]
+}
+
+- Resposta esperada (exemplo GPT):
+{
+  "ok": true,
+  "engine": "gpt",
+  "model": "gpt-4o-mini",
+  "predictions": [
+    {
+      "fields": ["prediction","probability"],
+      "values": [
+        ["approved", 0.85]
+      ]
+    }
+  ]
+}
+
+---
+
+## 2) Testando com Watsonx
+- URL:
+  http://127.0.0.1:8000/api/model-risk?engine=watson
+- Método:
+  POST
+- Headers:
+  Content-Type: application/json
+- Body (mesmo do GPT acima)
+
+- Resposta esperada (exemplo Watsonx):
+{
+  "ok": true,
+  "engine": "watson",
+  "result": {
+    "predictions":[
+      {
+        "fields":["prediction","probability"],
+        "values":[
+          ["No Risk",[0.6758,0.3241]]
+        ]
+      }
+    ]
+  }
+}
