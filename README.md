@@ -1,4 +1,4 @@
-# 📌 AI-Soldiers-WatsonX-API - Python 3.11.9
+# 📌 AI-Soldiers-WatsonX-GPT4-API - Python 3.11.9
 
 API Responsável por se comunicar com o modelo de análise de malware do WatsonX.
 
