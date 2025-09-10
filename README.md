@@ -158,6 +158,8 @@ O repositório do frontend que consome esta API está disponível no seguinte li
 
 ## ▶️ Como rodar a API (Executar CMD como Administrador)
 
+> Crie um arquivo ".env" baseado em ".env.example" na raiz do projeto
+
 ```bash
 # Instalar dependências
 pip install -r requirements.txt
