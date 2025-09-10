@@ -6,11 +6,17 @@ Esta API foi desenvolvida em **Python 3.11.9** e possui um único endpoint que a
 
 ---
 
-## 🚀 Endpoint
+## 🚀 Endpoints
+
+## GPT4 OpenAI
 
 ### `POST /api/model-risk`
 
-#### 📥 Request (Exemplo)
+## WatsonX IBM
+
+### `POST /api/model-risk?engine=watson`
+
+#### 📥 Request (Exemplo) (GPT e Watsonx)
 ```json
 {
   "input_data": [
@@ -71,7 +77,37 @@ Esta API foi desenvolvida em **Python 3.11.9** e possui um único endpoint que a
 - **param1** *(string, obrigatório)* → Descrição do campo.  
 - **param2** *(number, obrigatório)* → Descrição do campo.  
 
-#### 📤 Response
+#### 📤 Response WatsonX
+```json
+{
+  "result": {
+      "predictions": [
+          {
+              "fields": [
+                  "prediction",
+                  "probability"
+              ],
+              "values": [
+                  [
+                      "No Risk",
+                      [0.6758321523666382, 0.3241678774356842]
+                  ],
+                  [
+                      "No Risk", 
+                      [0.8493950366973877, 0.1506049484014511]
+                  ],
+                  [
+                      "Risk",
+                      [0.4720305800437927, 0.5279694199562073]
+                  ]
+              ]
+          }
+      ]
+  }
+}
+```
+
+#### 📤 Response GPT4
 ```json
 {
     "predictions": [
@@ -82,16 +118,16 @@ Esta API foi desenvolvida em **Python 3.11.9** e possui um único endpoint que a
             ],
             "values": [
                 [
-                    "No Risk",
-                    [0.6758321523666382, 0.3241678774356842]
+                    "approved",
+                    0.6758321523666382
                 ],
                 [
-                    "No Risk", 
-                    [0.8493950366973877, 0.1506049484014511]
+                    "approved", 
+                    0.8493950366973877
                 ],
                 [
-                    "Risk",
-                    [0.4720305800437927, 0.5279694199562073]
+                    "denied",
+                    0.4720305800437927
                 ]
             ]
         }
@@ -120,7 +156,7 @@ O repositório do frontend que consome esta API está disponível no seguinte li
 
 ---
 
-## ▶️ Como rodar a API
+## ▶️ Como rodar a API (Executar CMD como Administrador)
 
 ```bash
 # Instalar dependências
